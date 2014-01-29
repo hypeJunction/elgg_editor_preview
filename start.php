@@ -30,6 +30,10 @@ function elgg_editor_preview_init() {
  */
 function elgg_editor_preview_menu_setup($hook, $type, $menu, $params) {
 
+	if (elgg_in_context('embed')) {
+		return $menu;
+	}
+	
 	$id = elgg_extract('id', $params);
 
 	$menu[] = ElggMenuItem::factory(array(
